@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checklist de Veículo</title>
+  <style>
+    .checklist-item {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Checklist de Veículo</h2>
+
+<form id="checklistForm">
+  <div class="checklist-item">
+    <label>Carro:</label>
+    <input type="text" name="carro">
+    <label>KM:</label>
+    <input type="text" name="km">
+    <label>Placa:</label>
+    <input type="text" name="placa">
+    <label>Data/hora:</label>
+    <input type="text" name="data_hora">
+    <label>Vendedor:</label>
+    <input type="text" name="vendedor">
+  </div>
+
+  <div class="checklist-item">
+    <label>Observações:</label>
+    <textarea name="observacoes"></textarea>
+  </div>
+
+  <div class="checklist-item">
+    <label>Itens do Checklist:</label>
+    <!-- Adicione os itens do checklist aqui com caixas de seleção -->
+  </div>
+
+  <div class="checklist-item">
+    <label>Assinatura do Vendedor:</label>
+    <input type="text" name="assinatura_vendedor">
+  </div>
+
+  <button type="button" onclick="submitForm()">Enviar</button>
+</form>
+
+<script>
+  function submitForm() {
+    // Lógica para lidar com o envio do formulário, por exemplo, enviar para um servidor ou salvar localmente.
+    // Você pode acessar os valores dos campos do formulário usando document.getElementById('nome-do-campo').value
+    // Exemplo: var carro = document.getElementById('carro').value;
+    // Após obter os valores, você pode enviá-los para um servidor usando AJAX ou salvar localmente usando localStorage.
+    // Por simplicidade, vamos apenas exibir os valores no console.
+    var formData = document.getElementById('checklistForm');
+    console.log(formData);
+  }
+</script>
+
+</body>
+</html>
