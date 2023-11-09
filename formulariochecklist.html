@@ -28,7 +28,6 @@
 
   <div class="checklist-item">
     <label>Itens do Checklist:</label><br>
-    <!-- Lista de itens do checklist -->
     <div id="itensChecklist"></div>
   </div>
 
@@ -84,4 +83,12 @@
     itensChecklistDiv.appendChild(itemDiv);
   });
 
- 
+  function submitForm() {
+    var formData = document.getElementById('checklistForm');
+    console.log(formData);
+    // Adicione aqui a lógica para enviar os dados para o servidor ou salvar localmente
+  }
+</script>
+
+</body>
+</html>
