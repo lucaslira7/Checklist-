@@ -6,9 +6,24 @@
     .checklist-item {
       margin-bottom: 10px;
     }
+    .car-images img {
+      width: 150px;
+      margin-right: 10px;
+    }
   </style>
 </head>
 <body>
+
+<div class="car-images">
+  <img src="carro_lateral_esquerda.png" alt="Lateral Esquerda">
+  <img src="carro_lateral_direita.png" alt="Lateral Direita">
+  <img src="carro_frente.png" alt="Frente">
+  <img src="carro_traseira.png" alt="Traseira">
+</div>
+
+<div>
+  <h1>Servi Shopping Motors</h1>
+</div>
 
 <h2>Checklist de Veículo</h2>
 
@@ -33,9 +48,9 @@
 
   <div class="checklist-item">
     <label>Legenda:</label><br>
-    <input type="checkbox" id="verificado"> <label for="verificado">V = Verificado</label>
-    <input type="checkbox" id="faltando"> <label for="faltando">F = Faltando</label>
-    <input type="checkbox" id="avaria"> <label for="avaria">A = Avaria</label>
+    V = Verificado<br>
+    F = Faltando<br>
+    A = Avaria
   </div>
 
   <div class="checklist-item">
@@ -71,15 +86,9 @@
   var itensChecklistDiv = document.getElementById("itensChecklist");
 
   itensChecklist.forEach(function(item, index) {
-    var checkboxId = "item" + (index + 1);
-    var selectId = "statusItem" + (index + 1);
+    var itemId = "item" + (index + 1);
     var itemDiv = document.createElement("div");
-    itemDiv.innerHTML = '<input type="checkbox" id="' + checkboxId + '"> <label for="' + checkboxId + '">' + (index + 1) + '. ' + item + '</label>' +
-      '<select name="' + selectId + '">' +
-      '<option value="V">V</option>' +
-      '<option value="F">F</option>' +
-      '<option value="A">A</option>' +
-      '</select><br>';
+    itemDiv.innerHTML = '<label>' + (index + 1) + '. ' + item + '</label><br>';
     itensChecklistDiv.appendChild(itemDiv);
   });
 
