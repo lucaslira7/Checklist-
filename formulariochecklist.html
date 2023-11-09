@@ -28,27 +28,8 @@
 
   <div class="checklist-item">
     <label>Itens do Checklist:</label><br>
-    1. PARA CHOQUE DIANTEIRO
-    <input type="checkbox" id="item1">
-    <select name="item1_status">
-      <option value="V">V</option>
-      <option value="F">F</option>
-      <option value="A">A</option>
-    </select><br>
-
-    2. CAPÔ
-    <input type="checkbox" id="item2">
-    <select name="item2_status">
-      <option value="V">V</option>
-      <option value="F">F</option>
-      <option value="A">A</option>
-    </select>
-    <!-- Adicione mais itens de checklist da mesma forma -->
-  </div>
-
-  <div class="checklist-item">
-    <label>Observações:</label>
-    <textarea name="observacoes"></textarea>
+    <!-- Lista de itens do checklist -->
+    <div id="itensChecklist"></div>
   </div>
 
   <div class="checklist-item">
@@ -56,6 +37,11 @@
     <input type="checkbox" id="verificado"> <label for="verificado">V = Verificado</label>
     <input type="checkbox" id="faltando"> <label for="faltando">F = Faltando</label>
     <input type="checkbox" id="avaria"> <label for="avaria">A = Avaria</label>
+  </div>
+
+  <div class="checklist-item">
+    <label>Observações:</label>
+    <textarea name="observacoes"></textarea>
   </div>
 
   <div class="checklist-item">
@@ -67,13 +53,35 @@
 </form>
 
 <script>
-  function submitForm() {
-    // Lógica para lidar com o envio do formulário
-    var formData = document.getElementById('checklistForm');
-    console.log(formData);
-    // Adicione aqui a lógica para enviar os dados para o servidor ou salvar localmente
-  }
-</script>
+  var itensChecklist = [
+    "PARA CHOQUE DIANTEIRO", "CAPÔ", "PARA-LAMA DIREITO", "PORTA MOTORISTA", "RETROVISOR ESQUERDO",
+    "PORTA ESQUERDA TRASEIRA", "LATERAL ESQUERDA", "PARA-CHOQUE TRASEIRO", "TAMPA MALA", "LATERAL DIREITA",
+    "PORTA TRASEIRA DIREITA", "PORTA DIANTEIRA DIREITA", "PARA-LAMA ESQUERDO", "RETROVISOR DIREITO",
+    "TETO", "PARA BRISA", "VIDROS GERAL", "RODAS DIANTEIRAS", "RODAS TRASEIRAS", "PNEUS DIANTEIROS",
+    "PNEUS TRASEIROS", "FAROL DIREITO", "FAROL ESQUERDO", "LANTERNA TRASEIRA", "ANTENA",
+    "ESTADO DO LIMPADOR DE PARA-BRISA", "VOLANTE", "MANOPLA DE MARCHA", "COIFA DE MARCHA", "TAPETES",
+    "BANCOS", "FORRO DE TETO", "LUZ INTERNA", "SOM AUDIO", "MULTIMÍDIA", "VIDROS ELÉTRICOS",
+    "TRAVAS ELÉTRICAS", "BUZINA", "TRAVAMENTO NA CHAVE", "FREIO DE MÃO", "AR-CONDICIONADO",
+    "DIFUSOR DE AR CONDICIONADO", "BAGAGITO", "TAMPA DE COMBUSTÍVEL", "LÂMPADA DIURNA",
+    "LÂMPADA LATERAL DIANTEIRO", "LÂMPADA FAROL", "LÂMPADA PISCA DIANTEIRO", "LÂMPADA PISCA RETROVISOR",
+    "LÂMPADA FAROL DE MILHA", "LÂMPADA LUZ DE PLACA", "LÂMPADA LATERAL TRASEIRA", "LÂMPADA FREIO",
+    "LÂMPADA PISCA TRASEIRO", "LÂMPADA DE RÉ", "LÂMPADA DE FAROL DE NEBLINA", "STEP", "MACACO",
+    "CHAVE DE RODA", "TRIÂNGULO", "MANUAL", "CHAVE CÓPIA"
+  ];
 
-</body>
-</html>
+  var itensChecklistDiv = document.getElementById("itensChecklist");
+
+  itensChecklist.forEach(function(item, index) {
+    var checkboxId = "item" + (index + 1);
+    var selectId = "statusItem" + (index + 1);
+    var itemDiv = document.createElement("div");
+    itemDiv.innerHTML = '<input type="checkbox" id="' + checkboxId + '"> <label for="' + checkboxId + '">' + (index + 1) + '. ' + item + '</label>' +
+      '<select name="' + selectId + '">' +
+      '<option value="V">V</option>' +
+      '<option value="F">F</option>' +
+      '<option value="A">A</option>' +
+      '</select><br>';
+    itensChecklistDiv.appendChild(itemDiv);
+  });
+
+ 
